@@ -3,8 +3,7 @@ const partyContainer = document.querySelector('#party-container');
 
 const PARTIES_API_URL =
   'http://fsa-async-await.herokuapp.com/api/workshop/parties';
-const GUESTS_API_URL =
-  'http://fsa-async-await.herokuapp.com/api/workshop/guests';
+const GUESTS_API_URL ='http://fsa-async-await.herokuapp.com/api/workshop/guests';
 const RSVPS_API_URL = 'http://fsa-async-await.herokuapp.com/api/workshop/rsvps';
 const GIFTS_API_URL = 'http://fsa-async-await.herokuapp.com/api/workshop/gifts';
 
@@ -119,7 +118,7 @@ const renderParties = async (parties) => {
       // delete party
       const deleteButton = partyElement.querySelector('.delete-button');
       deleteButton.addEventListener('click', async (event) => {
-        // your code here
+
       });
     });
   } catch (error) {
@@ -129,7 +128,8 @@ const renderParties = async (parties) => {
 
 // init function
 const init = async () => {
-  // your code here
+  const parties = getAllParties()
+  renderParties(parties)
 };
 
 init();
