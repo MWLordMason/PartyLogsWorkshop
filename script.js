@@ -118,7 +118,7 @@ const renderParties = async (parties) => {
       // delete party
       const deleteButton = partyElement.querySelector('.delete-button');
       deleteButton.addEventListener('click', async (event) => {
-
+          
       });
     });
   } catch (error) {
@@ -133,3 +133,5 @@ const init = async () => {
 };
 
 init();
+
+
