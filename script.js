@@ -1,8 +1,7 @@
 const newPartyForm = document.querySelector('#new-party-form');
 const partyContainer = document.querySelector('#party-container');
 
-const PARTIES_API_URL =
-  'http://fsa-async-await.herokuapp.com/api/workshop/parties';
+const PARTIES_API_URL ='http://fsa-async-await.herokuapp.com/api/workshop/parties';
 const GUESTS_API_URL ='http://fsa-async-await.herokuapp.com/api/workshop/guests';
 const RSVPS_API_URL = 'http://fsa-async-await.herokuapp.com/api/workshop/rsvps';
 const GIFTS_API_URL = 'http://fsa-async-await.herokuapp.com/api/workshop/gifts';
@@ -12,6 +11,7 @@ const getAllParties = async () => {
   try {
     const response = await fetch(PARTIES_API_URL);
     const parties = await response.json();
+    console.log(parties)
     return parties;
   } catch (error) {
     console.error(error);
@@ -31,7 +31,7 @@ const getPartyById = async (id) => {
 
 // delete party
 const deleteParty = async (id) => {
-  // your code here
+  delete id
 };
 
 // render a single party by id
@@ -63,15 +63,12 @@ const renderSinglePartyById = async (id) => {
             <p>${party.country}</p>
             <h3>Guests:</h3>
             <ul>
-            ${guests
-              .map(
-                (guest, index) => `
+            ${guests.map((guest, index) => `
               <li>
                 <div>${guest.name}</div>
                 <div>${rsvps[index].status}</div>
               </li>
-            `
-              )
+            `)
               .join('')}
           </ul>
           
@@ -112,13 +109,13 @@ const renderParties = async (parties) => {
       // see details
       const detailsButton = partyElement.querySelector('.details-button');
       detailsButton.addEventListener('click', async (event) => {
-        // your code here
+         
       });
 
       // delete party
       const deleteButton = partyElement.querySelector('.delete-button');
       deleteButton.addEventListener('click', async (event) => {
-          
+          delete party.id
       });
     });
   } catch (error) {
